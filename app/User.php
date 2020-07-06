@@ -15,4 +15,12 @@ class User extends Model
     protected $fillable = [
         'name', 'email', 'phone', 'password', 'level'
     ];
+
+    public function changeLevel($action)
+    {
+        $level =  $action == 'upgrade' ? 'P' : 'F';
+        $this->level = $level;
+        $this->save();
+        return $this;
+    }
 }

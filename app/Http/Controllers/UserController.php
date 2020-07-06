@@ -23,4 +23,12 @@ class UserController extends Controller
         $user = User::create($data);
         return $user;
     }
+
+    public function changeLevel(Request $request, $id)
+    {
+        $action = explode('/', $request->path())[2];
+        $user = User::findOrFail($id)
+            ->changeLevel($action);
+        return $user;
+    }
 }

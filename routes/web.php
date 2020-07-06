@@ -18,4 +18,6 @@ $router->get('/', function () use ($router) {
 $router->group(['prefix' => 'users'], function () use ($router) {
     $router->get('', 'UserController@index');
     $router->post('', 'UserController@store');
+    $router->put('/{id}/upgrade', 'UserController@changeLevel');
+    $router->put('/{id}/downgrade', 'UserController@changeLevel');
 });
