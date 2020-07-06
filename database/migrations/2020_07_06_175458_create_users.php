@@ -19,6 +19,7 @@ class CreateUsers extends Migration
             $table->string('email')->unique();
             $table->string('phone')->unique();
             $table->enum('level', ['F', 'P']);
+            $table->string('external_id')->nullable();
             $table->timestamps();
         });
     }

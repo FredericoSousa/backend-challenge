@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Services\MLearnService;
 use Illuminate\Http\Request;
 use App\User;
+use GuzzleHttp\Client;
+use Illuminate\Support\Facades\Http;
 
 class UserController extends Controller
 {
@@ -21,14 +24,13 @@ class UserController extends Controller
             'level' => 'required|in:F,P'
         ]);
         $user = User::create($data);
-        return $user;
+        return MLearnService::createUser($user);
     }
 
     public function changeLevel(Request $request, $id)
     {
         $action = explode('/', $request->path())[2];
-        $user = User::findOrFail($id)
-            ->changeLevel($action);
-        return $user;
+        $user = User::findOrFail($id);
+        return MLearnService::changeUserLevel($user, $action);
     }
 }

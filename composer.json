@@ -7,6 +7,7 @@
     "require": {
         "php": "^7.2.5",
         "goldspecdigital/laravel-eloquent-uuid": "^7.0",
+        "guzzlehttp/guzzle": "^7.0",
         "laravel/lumen-framework": "^7.0"
     },
     "require-dev": {
