@@ -1,4 +1,3 @@
-const baseUrl = "http://localhost:8000";
 const tbody = document.querySelector("#users-tbody");
 const pagination = document.querySelector(".pagination");
 const form = document.querySelector("#user-form");
@@ -60,7 +59,7 @@ const createtbody = (data) => {
 
 const getUsers = (page) => {
     if (page) currentPage = page;
-    fetch(`${baseUrl}/users?page=${currentPage}`)
+    fetch(`/users?page=${currentPage}`)
         .then((res) => res.json())
         .then((res) => {
             createPagination(res);
@@ -69,13 +68,13 @@ const getUsers = (page) => {
 };
 
 const downgrade = (id) => {
-    fetch(`${baseUrl}/users/${id}/downgrade`, { method: "PUT" }).then((res) =>
+    fetch(`/users/${id}/downgrade`, { method: "PUT" }).then((res) =>
         getUsers()
     );
 };
 
 const upgrade = (id) => {
-    fetch(`${baseUrl}/users/${id}/upgrade`, { method: "PUT" }).then((res) =>
+    fetch(`/users/${id}/upgrade`, { method: "PUT" }).then((res) =>
         getUsers()
     );
 };
@@ -91,7 +90,7 @@ const getForm = () => {
 form.addEventListener("submit", (e) => {
     e.preventDefault();
     const data = getForm();
-    fetch(`${baseUrl}/users`, {
+    fetch(`/users`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
