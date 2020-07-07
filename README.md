@@ -55,6 +55,14 @@ Para rodar as migrations basta executar o comando abaixo.
 php artisan migrate
 ```
 
+## Testes
+Os testes ficam localizados no diretorio tests.
+
+Para rodar os testes basta executar o comando abaixo na raiz do projeto.
+```bash
+vendor/bin/phpunit
+```
+
 ## Utilização da API
 ### Criar um usuário
 Para criar um usuário basta fazer uma requisição **POST** para a rota **/users** como no exemplo abaixo:
