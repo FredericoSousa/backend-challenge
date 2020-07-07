@@ -13,7 +13,7 @@ class UserController extends Controller
 {
     public function index(Request $request)
     {
-        return User::paginate(1);
+        return User::paginate(10);
     }
 
     public function store(Request $request)
