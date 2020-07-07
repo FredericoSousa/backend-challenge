@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\User;
 use GuzzleHttp\Client;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Log;
 
 class UserController extends Controller
 {

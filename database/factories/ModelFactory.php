@@ -20,5 +20,7 @@ $factory->define(User::class, function (Faker $faker) {
     return [
         'name' => $faker->name,
         'email' => $faker->email,
+        'phone' => substr(str_replace('+', '', $faker->e164PhoneNumber), 0, 11),
+        'level' => $faker->randomElement(['F', 'P'])
     ];
 });
